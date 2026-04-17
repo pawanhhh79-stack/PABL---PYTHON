@@ -1,0 +1,22 @@
+class Solution:
+    def winner(self, arr):
+        vote_count = {}
+        
+        
+        for name in arr:
+            vote_count[name] = vote_count.get(name, 0) + 1
+        
+        max_votes = 0
+        winner_name = ""
+        
+        for name in vote_count:
+            if vote_count[name] > max_votes:
+                max_votes = vote_count[name]
+                winner_name = name
+            elif vote_count[name] == max_votes:
+                
+                if name < winner_name:
+                    winner_name = name
+        
+        
+        return [winner_name, str(max_votes)]
