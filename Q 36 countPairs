@@ -1,0 +1,18 @@
+class Solution:
+    def countPairs(self, arr):
+        from collections import defaultdict
+        
+        pattern_count = defaultdict(int)
+        pairs = 0
+        
+        for s in arr:
+            for i in range(len(s)):
+                pattern = s[:i] + '*' + s[i+1:]
+                
+               
+                pairs += pattern_count[pattern]
+                
+                
+                pattern_count[pattern] += 1
+        
+        return pairs
